@@ -2,7 +2,7 @@ pipeline {
 
     environment { 
         
-        registry = "levdevops/nodejs" 
+        registry = "levdevops" 
 
         registryCredential = "dockerhub"
 
