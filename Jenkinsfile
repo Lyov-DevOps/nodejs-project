@@ -6,7 +6,7 @@ pipeline {
 
         registryCredential = "dockerhub"
 
-        dockerImage = 'app'
+        dockerImage = ''
      
         
     }
@@ -45,7 +45,7 @@ pipeline {
 
                 script { 
                     echo 'Deploying'
-                    docker.withRegistry( 'app', registryCredential ) { 
+                    docker.withRegistry( '', registryCredential ) { 
 
 //                      
                         dockerImage.push("v.1.6")
