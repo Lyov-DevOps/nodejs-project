@@ -31,7 +31,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry + "$BUILD_NUMBER"
+                    dockerImage = docker.build registry:$BUILD_NUMBER
                  
                 }
 
@@ -47,7 +47,7 @@ pipeline {
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push("v.2.2")
-                        dockerImage.push()
+                      
                         
                     }
 
