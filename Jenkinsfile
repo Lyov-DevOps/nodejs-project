@@ -31,7 +31,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry + "APP"
+                    dockerImage = docker.build registry
                  
                 }
 
@@ -45,9 +45,9 @@ pipeline {
 
                 script { 
                     echo 'Deploying'
-                    docker ( '', registryCredential ) { 
+                    docker .withRegistry( '', registryCredential ) { 
                     
-                    dockerImage.push()
+                    dockerImage.push("v.1.9")
                    
                     }
 
