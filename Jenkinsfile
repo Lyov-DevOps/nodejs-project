@@ -25,7 +25,7 @@ pipeline {
 
         } 
 
-    }   
+      
         stage('Building our image') { 
 
             steps { 
@@ -47,7 +47,7 @@ pipeline {
                 script { 
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push('v.1.1')
+                        dockerImage.push("v.1.1")
                       
                         
                     }
@@ -55,8 +55,8 @@ pipeline {
                 } 
 
             }
-        
-
+        } 
+    }
 //      stage('Cleaning up') { 
 
 //             steps { 
