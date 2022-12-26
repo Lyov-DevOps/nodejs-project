@@ -48,7 +48,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
 //                      
-                        dockerImage.push("v.1.6")
+                        dockerImage.push("v.1.7")
                     }
 
                 } 
