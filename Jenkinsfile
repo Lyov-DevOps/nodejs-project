@@ -46,7 +46,7 @@ pipeline {
                 script { 
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push('')
+                        dockerImage.push('v.1.1')
                       
                         
                     }
