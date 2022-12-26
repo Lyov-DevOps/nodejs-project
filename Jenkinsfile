@@ -30,7 +30,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build -t registry
+                    dockerImage = docker.build registry
                  
                 }
 
