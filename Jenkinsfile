@@ -6,7 +6,6 @@ pipeline {
 
         registryCredential = "dockerhub"
 
-        dockerImage = ''
      
         
     }
@@ -31,7 +30,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry  
+                    dockerImage = docker.build registry:latest  
                  
                 }
 
