@@ -31,7 +31,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build -t registry:v.2.3
+                    dockerImage = docker.build -t registry + $BUILD_NUMBER
                  
                 }
 
@@ -60,7 +60,7 @@ pipeline {
 
             steps { 
 
-                sh "docker rmi $registry" 
+                sh "docker rmi $registry:$BUILD_NUMBER" 
 
             }
 
