@@ -46,15 +46,14 @@ pipeline {
                 script { 
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
-
-                    
-                        dockerImage.push("v.1.8")
+                    dockerImage.push("v.1.8")
+                   
                     }
 
                 } 
 
             }
         }
-}
+
     
 
