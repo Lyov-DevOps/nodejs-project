@@ -49,7 +49,7 @@ pipeline {
 
 //                         
 //                         dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push(v.1.6)
+                        dockerImage.push("v.1.6")
                     }
 
                 } 
