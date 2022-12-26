@@ -46,8 +46,8 @@ pipeline {
                 script { 
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
-
-                        dockerImage.push( "${env.BUILD_NUMBER}" )
+                        dockerImage.push("v.2.2")
+//                         dockerImage.push( "${env.BUILD_NUMBER}" )
                         
                     }
 
