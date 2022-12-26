@@ -48,7 +48,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
 //                         dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("nodejs.v.1.2")
+                        dockerImage.push("nodejs.v.1.3")
                     }
 
                 } 
