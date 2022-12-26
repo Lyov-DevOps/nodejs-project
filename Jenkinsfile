@@ -6,7 +6,7 @@ pipeline {
 
         registryCredential = "dockerhub"
         dockerImage = ''
-     
+        version = "v.2.4"
         
     }
 
@@ -30,7 +30,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build -t registry:$BUILD_NUMBER   
+                    dockerImage = docker.build registry:$version
                  
                 }
 
@@ -47,7 +47,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
 //                         dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("v.2.2")
+                        dockerImage.push
                     }
 
                 } 
