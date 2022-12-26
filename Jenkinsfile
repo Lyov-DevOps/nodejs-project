@@ -25,6 +25,7 @@ pipeline {
 
         } 
 
+    }   
         stage('Building our image') { 
 
             steps { 
@@ -54,7 +55,7 @@ pipeline {
                 } 
 
             }
-        }
+        
 
 //      stage('Cleaning up') { 
 
