@@ -5,7 +5,7 @@ pipeline {
         registry = "levdevops/nodejs" 
 
         registryCredential = "dockerhub"
-        dockerImage = ''
+        dockerImage = 'latest'
         version = "v.2.4"
         
     }
