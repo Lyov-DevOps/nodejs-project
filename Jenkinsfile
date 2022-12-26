@@ -31,7 +31,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build myapp 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                  
                 }
 
