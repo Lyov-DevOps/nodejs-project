@@ -47,7 +47,7 @@ pipeline {
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push("v.2.2")
-//                         dockerImage.push( "${env.BUILD_NUMBER}" )
+                        dockerImage.push( "${env.BUILD_NUMBER}" )
                         
                     }
 
@@ -55,8 +55,19 @@ pipeline {
 
             }
         }
-}
+
+     stage('Cleaning up') { 
+
+            steps { 
+
+                sh "docker rmi $registry:$BUILD_NUMBER" 
+
+            }
+
+        } 
+
+    }
+
 }    
-
-
+}
 
