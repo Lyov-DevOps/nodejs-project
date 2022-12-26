@@ -2,7 +2,7 @@ pipeline {
 
     environment { 
         
-        registry = "levdevops" 
+        registry = "levdevops/nodejs" 
 
         registryCredential = "dockerhub"
 
@@ -48,7 +48,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
                         dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("v.1.0")
+                        dockerImage.push("nodejs.v.1.0")
                     }
 
                 } 
