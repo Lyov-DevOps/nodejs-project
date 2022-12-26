@@ -31,7 +31,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry  
+                    dockerImage = docker.build myapp 
                  
                 }
 
@@ -48,7 +48,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) { 
 
 //                         dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("nodejs.v.1.3")
+                        dockerImage.push("v.1.4")
                     }
 
                 } 
