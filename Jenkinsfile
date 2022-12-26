@@ -5,7 +5,7 @@ pipeline {
         registry = "levdevops/nodejs" 
 
         registryCredential = "dockerhub"
-
+        dockerImage = ''
      
         
     }
@@ -30,7 +30,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry:latest  
+                    dockerImage = docker.build -t registry:$BUILD_NUMBER   
                  
                 }
 
