@@ -46,7 +46,7 @@ pipeline {
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
 
-                        dockerImage.push("${env.version")
+                        dockerImage.push("$version")
 //                         dockerImage.push()
                     }
 
