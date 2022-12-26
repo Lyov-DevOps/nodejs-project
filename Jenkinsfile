@@ -47,7 +47,7 @@ pipeline {
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
                     
-                    dockerImage.push(" ")
+                    dockerImage.push()
                    
                     }
 
