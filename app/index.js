@@ -32,15 +32,9 @@ let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 // "user-account" in demo with docker. "my-db" in demo with docker-compose
 let databaseName = "my-db";
 
-// 
-// app.post('/update-profile', function (req, res) {
-//   let userObj = req.body;
 app.post('/update-profile', function (req, res) {
-  let img = fs.readFileSync(path.join(__dirname, "images/profile-4.jpg"));
   let userObj = req.body;
-  res.writeHead(200, {'Content-Type': 'image/jpg' });
-  res.end(img, 'binary');  
-  
+
   MongoClient.connect(mongoUrlDocker, mongoClientOptions, function (err, client) {
     if (err) throw err;
 
@@ -50,7 +44,7 @@ app.post('/update-profile', function (req, res) {
     let myquery = { userid: 1 };
     let newvalues = { $set: userObj };
 
-    db.collection("users").updatedOne(myquery, newvalues, {upsert: true}, function(err, res) {
+    db.collection("users").updateOne(myquery, newvalues, {upsert: true}, function(err, res) {
       if (err) throw err;
       client.close();
     });
@@ -62,8 +56,6 @@ app.post('/update-profile', function (req, res) {
 
 app.get('/get-profile', function (req, res) {
   let response = {};
-
-  
   // Connect to the db
   MongoClient.connect(mongoUrlDocker, mongoClientOptions, function (err, client) {
     if (err) throw err;
@@ -86,4 +78,3 @@ app.get('/get-profile', function (req, res) {
 app.listen(81, function () {
   console.log("app listening on port 81!");
 });
-
