@@ -7,7 +7,6 @@ RUN mkdir -p /home/app
 
 COPY ./app /home/app
 
-EXPOSE 81
 
 # set default dir so that next commands executes in /home/app dir
 WORKDIR /home/app

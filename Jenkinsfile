@@ -5,9 +5,8 @@ pipeline {
         registry = "levdevops/nodejs" 
 
         registryCredential = "dockerhub"
-
-        dockerImage = ''
-     
+        dockerImage = 'latest'
+        version = "v.2.4"
         
     }
 
@@ -31,7 +30,7 @@ pipeline {
 
                 script { 
                     echo 'Building'
-                    dockerImage = docker.build registry  
+                    dockerImage = docker.build registry
                  
                 }
 
@@ -47,8 +46,8 @@ pipeline {
                     echo 'Deploying'
                     docker.withRegistry( '', registryCredential ) { 
 
-                        dockerImage.push("${env.BUILD_NUMBER}")
-                        dockerImage.push("v.2.1")
+                        dockerImage.push("$version")
+//                         dockerImage.push()
                     }
 
                 } 
